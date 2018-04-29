@@ -10,7 +10,8 @@ export class UsersComponent implements OnInit {
   showExtended: boolean = true;
   //In HTTP Requests and getting callbacks
   loaded: boolean = false;
-  
+  enableAdd: boolean = true;
+
 //Constructor more used for dependency injection
   constructor() { }
 
@@ -18,6 +19,7 @@ export class UsersComponent implements OnInit {
 //Lifecycle method, runs automatically when the component is initialized
 //Used for things like ajax calls
   ngOnInit() {
+   
       this.users = [
         {
           firstName: 'John',
@@ -27,7 +29,8 @@ export class UsersComponent implements OnInit {
               street: '50 Main st',
               city: 'Boston',
               state: 'MA'
-          }
+          },
+          image: 'http://lorempixel.com/600/600/people/3'
       },
       {
           firstName: 'Kevin',
@@ -37,7 +40,8 @@ export class UsersComponent implements OnInit {
               street: '20 School st',
               city: 'Lynn',
               state: 'MA'
-        }
+        },
+        image: 'http://lorempixel.com/600/600/people/2'
     },
     {
         firstName: 'Karen',
@@ -47,22 +51,19 @@ export class UsersComponent implements OnInit {
             street: '55 Mill st',
             city: 'Miami',
             state: 'FL'
-      }
+      },
+      image: 'http://lorempixel.com/600/600/people/1'
   }
       ];
-      this.showExtended = false;
-//calls the addUser method below on our User Array
-      this.addUser({
-        firstName: 'David',
-        lastName : 'Jackson',
-        age: 44,
-        address: {
-            street: '12 Wake St',
-            city: 'Miami',
-            state: 'FL'
-      }
-  })
-  }
+
+      this.loaded = true;     
+
+//calls the addUser method (below) on our User Array
+      // this.addUser({
+      //   firstName: 'David',
+      //   lastName : 'Jackson'   
+      // });
+    }
 
   addUser(user: User) {
     this.users.push(user);
