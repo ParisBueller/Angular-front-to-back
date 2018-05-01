@@ -11,6 +11,8 @@ export class UsersComponent implements OnInit {
   //In HTTP Requests and getting callbacks
   loaded: boolean = false;
   enableAdd: boolean = true;
+  showUserForm: boolean = false;
+
 
 //Constructor more used for dependency injection
   constructor() { }
@@ -24,13 +26,15 @@ export class UsersComponent implements OnInit {
         {
           firstName: 'John',
           lastName : 'Doe',
-          age: 30,
+          age: 70,
           address: {
               street: '50 Main st',
               city: 'Boston',
               state: 'MA'
           },
-          image: 'http://lorempixel.com/600/600/people/3'
+          isActive: true,
+          registered: new Date('01/02/2018 08:30:00'),
+          hide: true
       },
       {
           firstName: 'Kevin',
@@ -41,7 +45,9 @@ export class UsersComponent implements OnInit {
               city: 'Lynn',
               state: 'MA'
         },
-        image: 'http://lorempixel.com/600/600/people/2'
+        isActive: false,
+        registered: new Date('03/11/2017 06:20:00'),
+        hide: true
     },
     {
         firstName: 'Karen',
@@ -52,7 +58,9 @@ export class UsersComponent implements OnInit {
             city: 'Miami',
             state: 'FL'
       },
-      image: 'http://lorempixel.com/600/600/people/1'
+      isActive: true,
+      registered: new Date('11/02/2016 10:30:00'),
+      hide: true
   }
       ];
 
@@ -63,10 +71,26 @@ export class UsersComponent implements OnInit {
       //   firstName: 'David',
       //   lastName : 'Jackson'   
       // });
+
     }
 
   addUser(user: User) {
     this.users.push(user);
   }
 
+  // toggleHide(user) {
+  //   user.hide = !user.hide;
+  // } 
+  //can put expression(user.hide = !user.hide) inside 
+  //our click function in our html
+
+  onSubmit(e) {
+    console.log(123);
+    e.preventDefault();
+  }
+
+  fireEvent(e) {
+    console.log(e.target.value);
+    console.log(e.type);
+  }
 }
