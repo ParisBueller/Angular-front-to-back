@@ -1,5 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { FormsModule } from '@angular/Forms';
 
 //All Components must be imported to app.modulefrom their file location
 import { AppComponent } from './app.component';
@@ -16,7 +17,8 @@ import { NavbarComponent } from './components/navbar/navbar.component';
     //Components also must be added to declarations in app.module
   ],
   imports: [
-    BrowserModule
+    BrowserModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
